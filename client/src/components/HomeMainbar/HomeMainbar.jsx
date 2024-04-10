@@ -6,60 +6,38 @@ import QuestionList from './QuestionList'
 
 const HomeMainbar = () => {
   const location = useLocation ();
-const user = 1;
+   const user = 1;
     const navigate= useNavigate()
-  var questionList = [{
-    _id:1,
-    upVotes:3,
-    downVotes:2,
-    noOfAnswers:2,
-    questionTitle:"What is a function",
-    questionBody:"It meant to be",
-    questionTags:["java", "nodde js","react-js","mongodb" ],
-    userPosted:"mano",
-    userId:1,
-    askedOn:"jan 1",
-    answer:[{
-      answerBody: "Answer",
-      userAnswered:"Kumar",
-      answeredOn:"jan 2",
-      userId:2,
-    }]
-  },{
-    _id:2,
-    upVotes:3,
-    downVotes:2,
-    noOfAnswers:0,
-    questionTitle:"What is a function",
-    questionBody:"It meant to be",
-    questionTags:["java", "nodde js","react-js","mongodb" ],
-    usePosted:"mano",
-    askedOn:"jan 1",
-    userId:1,
-    answer:[{
-      answerBody: "Answer",
-      userAnswered:"Kumar",
-      answeredOn:"jan 2",
-      userId:2,
-    }]
-  },{
-    _id:3,
-    upVotes:1,
-    downVotes:2,
-    noOfAnswers:2,
-    questionTitle:"What is a function",
-    questionBody:"It meant to be",
-    questionTags:["java", "nodde js","react-js","mongodb" ],
-    usePosted:"mano",
-    askedOn:"jan 1",
-    userId:3,
-    answer:[{
-      answerBody: "Answer",
-      userAnswered:"Kumar",
-      answeredOn:"jan 2",
-      userId:2,
-    }]
-  }]
+    const questionList = [
+      {
+      id: 1,
+      votes: 1,
+      noOfAnswers: 0,
+      questionTitle: "what is a function?",
+      questionBody:"It meant to be",
+      questionTags: ["javascript", "R", "python"],
+      userPosted: "manav",
+      askedOn:"jan 1"
+      },
+      {
+      id: 2,
+      votes: 0,
+      noOfAnswers: 0,
+      questionTitle: "what is a function?",
+      questionBody:"It meant to be",
+      questionTags: ["javascript", "R", "python"],
+      userPosted: "manav",
+      askedOn:"jan 1"
+    },{
+      id: 3,
+      votes: 0,
+      noOfAnswers: 0,
+      questionTitle: "what is a function?",
+      questionBody:"It meant to be", 
+      questionTags: ["javascript", "R", "python"],
+      userPosted: "manav",
+      askedOn:"jan 1"
+      }]
 
     const checkAuth = () =>{
       if(user === null){
