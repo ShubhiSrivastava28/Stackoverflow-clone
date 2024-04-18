@@ -35,7 +35,7 @@ const QuestionsDetails = () => {
         questionTitle:"What is a function",
         questionBody:"It meant to be",
         questionTags:["java", "nodde js","react-js","mongodb" ],
-        usePosted:"mano",
+        userPosted:"mano",
         askedOn:"jan 1",
         userId:1,
         answer:[{
@@ -52,7 +52,7 @@ const QuestionsDetails = () => {
         questionTitle:"What is a function",
         questionBody:"It meant to be",
         questionTags:["java", "nodde js","react-js","mongodb" ],
-        usePosted:"mano",
+        userPosted:"mano",
         askedOn:"jan 1",
         userId:3,
         answer:[{

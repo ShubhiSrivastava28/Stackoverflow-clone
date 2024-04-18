@@ -4,11 +4,18 @@ import icon from '../../assets/icon.png'
 import AboutAuth from "./AboutAuth";
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
 
   const handleSwitch = () => {
     setIsSignup(!isSignup)
   }
-  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
   return (
     <section class='auth-section'>
       {
@@ -16,12 +23,14 @@ const Auth = () => {
       }
        <div class='auth-container-2'>
         { !isSignup && <img src={icon} alt='stack overflow' className='login-logo'/> }
-         <form>
+         <form onSubmit={handleSubmit}>
               {
                  isSignup && (
                   <label htmlFor='name'>
                       <h4>Display Name</h4>
-                      <input type="text" id="name" name='name'/>
+                      <input type="text" id="name" name='name' onChange={(e) => {
+                  setName(e.target.value);
+                }} />
                   </label>
                  )
 
@@ -29,7 +38,9 @@ const Auth = () => {
 
          <label htmlFor="email">
             <h4>Email</h4>
-            <input type="email" name='email' id='email'/>
+            <input type="email" name='email' id='email' onChange={(e) => {
+                  setEmail(e.target.value);
+                }}/>
             </label>
   
             <label htmlFor="password">
@@ -37,7 +48,9 @@ const Auth = () => {
               <h4>Password</h4>
               { !isSignup && <p style={{color: "#007ac6", fontSize:"13px"}}>Forgot password?</p>}
               </div>
-            <input type="password" name='password"' id='password"'/>
+            <input type="password" name='password"' id='password"'onChange={(e) => {
+                  setPassword(e.target.value);
+                }}/>
             { isSignup && <p style={{color: "#666767", fontSize:"13px"}}>Password must contain at least eight <br/> characters,including atleast 1 letter and 1 <br/>number.</p>}
          </label>
          {
