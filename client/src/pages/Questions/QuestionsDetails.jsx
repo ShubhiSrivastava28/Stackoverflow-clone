@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams,Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import upvote from "../../assets/sort-up.svg";
 import downvote from "../../assets/sort-down.svg";
 import './Questions.css'
@@ -9,7 +10,9 @@ import DisplayAnswer from './DisplayAnswer';
 const QuestionsDetails = () => {
 
     const { id } = useParams()
-    console.log(id)
+    const questionsList = useSelector((state) => state.questionsReducer);
+  
+    /*console.log(id)
     var questionList = [{
         _id:"1",
         upVotes:3,
@@ -61,15 +64,15 @@ const QuestionsDetails = () => {
           answeredOn:"jan 2",
           userId:2,
         }]
-      }]
+      }]*/
   return (
     <div className='question-details-page'>
        {
-        questionList === null ?
+        questionsList.data === null ?
         <h1>Loading..</h1>:
         <>
         {
-            questionList.filter(question => question._id === id).map(question =>(
+            questionsList.data.filter(question => question._id === id).map(question =>(
 
               <div key={question._id}>
                 {console.log(question)}
