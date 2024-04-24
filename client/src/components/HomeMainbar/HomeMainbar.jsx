@@ -82,7 +82,7 @@ const HomeMainbar = () => {
            ) : (
           <>
             <p> {questionsList.data.length } questions</p>
-           <QuestionList questionsList={questionsList.data}/>
+           <QuestionList questionList={questionsList.data}/>
            </>
        ) }
       </div>
