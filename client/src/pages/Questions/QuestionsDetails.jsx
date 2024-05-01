@@ -1,11 +1,12 @@
-import React from 'react'
-import { useParams,Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import React , {useState} from 'react'
+import { useParams,Link, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
 import upvote from "../../assets/sort-up.svg";
 import downvote from "../../assets/sort-down.svg";
 import './Questions.css'
 import Avatar from '../../components/Avatar/Avatar'
 import DisplayAnswer from './DisplayAnswer';
+import {postAnswer} from '../../actions/question'
 
 const QuestionsDetails = () => {
 
@@ -65,6 +66,24 @@ const QuestionsDetails = () => {
           userId:2,
         }]
       }]*/
+     const [Answer, setAnswer] = useState('')
+     const Navigate = useNavigate()
+     const dispatch = useDispatch()
+     const User = useSelector((state) => (state.currentUserReducer))
+      const handlePostAns = (e, answerLength) =>{
+         e.preventDefault()
+         if(User === null){
+            alert("Login or Signup to answer a question")
+            Navigate("/Auth");
+         }else{
+            if(Answer === ''){
+              alert("Enter an answer before submitting")
+            } else{
+               dispatch(postAnswer({id, noOfAnswers: answerLength + 1, answerBody: Answer, useAnswered: User.result.name}))
+            }
+         }
+
+      }
   return (
     <div className='question-details-page'>
        {
@@ -123,12 +142,12 @@ const QuestionsDetails = () => {
             }
             <section className='post-ans-container'>
             <h3> Your Answer</h3>
-            <form>
+            <form onSubmit={(e) => {handlePostAns(e,question.answer.length)}}>
               <textarea   name=""
                       id=""
                       cols="30"
-                      rows="10"></textarea> <br/>
-                      <input type='Submit' className='post-ans-btn' value='Post Your Answer'/>      
+                      rows="10"  onChange={e => setAnswer(e.target.value)} ></textarea> <br/>
+                      <input type='Submit' className='post-ans-btn' value='Post Your Answer'/>            
             </form>
             <p>
               Browse other Question tagged
