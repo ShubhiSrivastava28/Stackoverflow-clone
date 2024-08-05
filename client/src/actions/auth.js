@@ -1,10 +1,12 @@
-import * as api from '../api'
-import { setCurrentUser } from './currentUser'
+import * as api from '../api';
+import { setCurrentUser } from './currentUser';
+import { fetchallusers } from './users';
 export const signup = (authData, navigate) => async (dispatch) =>{
     try{
         const { data } = await api.signUp(authData)
         dispatch({ type: 'AUTH', data})
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile')) ))
+        dispatch(fetchallusers())
         navigate('/')
     } catch(error){
           console.log(error)
