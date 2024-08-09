@@ -19,4 +19,4 @@ export const postAnswer = (id, noOfAnswers, answerBody, userAnswered) =>
   API.patch(`/answer/post/${id}`, { noOfAnswers, answerBody, userAnswered });
 
 export const getallusers=()=> API.get("/users/getallusers");
-export const updateprofile=(id,updateprofile)=>API.patch(`user/update/${id}`,updatedata)
+export const updateprofile=(id,updateprofile)=>API.patch(`user/update/${id}`,updateprofile)

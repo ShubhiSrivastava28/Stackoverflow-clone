@@ -4,14 +4,15 @@ import { useSelector, useDispatch} from 'react-redux'
 import logo from '../../assets/logo.png'
 import search from '../../assets/search-solid.svg';
 import Avatar from '../../components/Avatar/Avatar'
-
 import './Navbar.css'
 import { setCurrentUser } from "../../actions/currentUser";
+import {jwtDecode} from "jwt-decode";
 
 const Navbar = () => {
 
    var User = useSelector((state) => (state.currentUserReducer))
   const dispatch = useDispatch()
+  
  useEffect(() => {
      dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
  },[dispatch]);
